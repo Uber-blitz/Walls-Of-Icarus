@@ -33,6 +33,7 @@ if(acceptKey)
 				break;
 				//Settings
 				case 1:
+					obj_sequenceManager.playSequence();
 					time_source_start(timeSource);
 				break;
 				//Quit Game
@@ -47,12 +48,21 @@ if(acceptKey)
 			{
 				//Fullscreen
 				case 0:
+				if window_get_fullscreen()
+				{
+					window_set_fullscreen(false);
+				}
+				else
+				{
+					window_set_fullscreen(true);
+				}
 				break;
 				//Controls
 				case 1:
 				break;
 				//Back
 				case 2:
+					obj_sequenceManager.playSequence();
 					time_source_start(timeSource);
 				break;
 			}

@@ -20,6 +20,8 @@ op_space = 50;
 
 pos = 0;
 
+fullscreen = false;
+
 //Main Menu
 option[0,0] = "START GAME";
 option[0,1] = "SETTINGS";
