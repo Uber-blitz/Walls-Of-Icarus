@@ -8,6 +8,7 @@ drag = 0.5;
 acceleration = 0.5;
 powerups = ["none", "earth", "air", "water", "fire"];
 currPowerup = powerups[0];
+jumpRising = false;
 #endregion
 
 #region States
@@ -27,13 +28,14 @@ idleState = function()
 		state = jumpingState; //put the player in the jumping state
 	}
 	//check if the player is falling
-	if(vspeed < 0)
+	if(vspeed > 0)
 	{
 		state = fallingState; //put the player in the falling state
 	}
 	//check if player is pressing K, or Z
 	if(keyboard_check(ord("K")) || keyboard_check(ord("Z")))
 	{
+		sprite_index = sprites[4];
 		state = attackingState;//put the player in the attacking state
 	}
 }
@@ -82,28 +84,25 @@ runningState = function()
 		}
 	}
 	
+	if(keyboard_check(ord("K")) || keyboard_check(ord("Z")))
+	{
+		sprite_index = sprites[4];
+		state = attackingState;//put the player in the attacking state
+	}
 }
 
 jumpingState = function()
 {
-	show_debug_message("Player is now jumping");
-	sprite_index = sprites[2];
-	vspeed = 5;
+	if (place_meeting(x, y+vspeed, obj_wall))
+	{
+		while(!place_meeting(x, y+sign(vspeed), obj_wall))
+		{
+			y = y + sign(speed);
+		}
+		vspeed = 0;
+	}
 	
-	//Test if player has stopped moving
-	if(hspeed == 0 && vspeed == 0)
-	{
-		//Set players state to idle
-		state = idleState;
-	}
-	if(vspeed > 0)
-	{
-		vspeed -= drag;
-	}
-	if(vspeed <= 0)
-	{
-		state = fallingState;
-	}
+	y = y + vspeed;
 }
 
 fallingState = function()
@@ -121,22 +120,23 @@ fallingState = function()
 
 attackingState = function()
 {
+	hspeed = 0;
 	//If the player presses the attack buttons
 	if(keyboard_check(ord("Z")) || keyboard_check(ord("K")))
 	{
 		show_debug_message("Entered Attack State");
-		sprite_index = sprites[4];
-		if(sprite_index == sprites[4] && image_index == image_number)
+		if(sprite_index == sprites[4] && image_index >= image_number - 1)
 		{
 			sprite_index = sprites[5];
 		}
-		if(sprite_index == sprites[5] && image_index == image_number)
+		if(sprite_index == sprites[5] && image_index >= image_number - 1)
 		{
 			sprite_index = sprites[4];
 		}
 	}
-	if(!keyboard_check(ord("Z")) && !keyboard_check(ord("K")))
+	if(!keyboard_check(ord("Z")) && !keyboard_check(ord("K")) && image_index >= image_number - 1)
 	{
+		hspeed = 0;
 		state = idleState;
 	}
 }
