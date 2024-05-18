@@ -9,6 +9,8 @@ acceleration = 0.5;
 powerups = ["none", "earth", "air", "water", "fire"];
 currPowerup = powerups[0];
 jumpRising = false;
+
+collisionTiles = layer_tilemap_get_id("TileCollider");
 #endregion
 
 #region States
@@ -25,10 +27,15 @@ idleState = function()
 	//check if the player is pressing up, or w
 	if(keyboard_check(vk_up) || keyboard_check(ord("W")))
 	{
-		state = jumpingState; //put the player in the jumping state
+		show_debug_message("Detected jump state input");
+		if(place_meeting(x, y + vspeed + 1, collisionTiles) && jumpRising == false)
+		{ 
+			jumpRising = true;
+			state = jumpingState; //put the player in the jumping state
+		}
 	}
 	//check if the player is falling
-	if(vspeed > 0)
+	if(!place_meeting(x, y + vspeed + 1, collisionTiles))
 	{
 		state = fallingState; //put the player in the falling state
 	}
@@ -50,6 +57,13 @@ runningState = function()
 		//Set players state to idle
 		state = idleState;
 	}
+	
+	//Check if player is falling.
+	if(!place_meeting(x, y + vspeed + 1, collisionTiles))
+	{
+		state = fallingState; //put the player in the falling state
+	}
+	
 	//check if left is pressed
 	if(keyboard_check(vk_left) || keyboard_check(ord("A")))
 	{
@@ -89,32 +103,68 @@ runningState = function()
 		sprite_index = sprites[4];
 		state = attackingState;//put the player in the attacking state
 	}
+	
+	if(keyboard_check(vk_up) || keyboard_check(ord("W")))
+	{
+		show_debug_message("Detected jump state input");
+		if(place_meeting(x, y + vspeed + 1, collisionTiles) && jumpRising == false)
+		{ 
+			jumpRising = true;
+			state = jumpingState; //put the player in the jumping state
+		}
+	}
 }
 
 jumpingState = function()
 {
-	if (place_meeting(x, y+vspeed, obj_wall))
-	{
-		while(!place_meeting(x, y+sign(vspeed), obj_wall))
+	show_debug_message("Player is now jumping");
+		if(vspeed >= -10 && jumpRising == true)
 		{
-			y = y + sign(speed);
+			vspeed -= acceleration;
 		}
-		vspeed = 0;
-	}
-	
-	y = y + vspeed;
+		if(vspeed <= -5 && jumpRising == true)
+		{
+			jumpRising = false;
+		}
+		if(jumpRising == false)
+		{
+			state = fallingState;
+		}
 }
 
 fallingState = function()
 {
+	vspeed += acceleration;
 	show_debug_message("Player is now falling");
 	sprite_index = sprites[3];
 	
 	//Test if player has stopped moving
-	if(hspeed == 0 && vspeed == 0)
+	if(place_meeting(x, y + vspeed, collisionTiles) && jumpRising == false)
 	{
 		//Set players state to idle
+		vspeed = 0;
+		hspeed = 0;
 		state = idleState;
+	}
+	
+	if(keyboard_check(vk_left) || keyboard_check(ord("A")))
+	{
+		image_xscale = -1
+		if (hspeed > -maxSpeed)
+		{
+			//Gradually increase speed in left direction
+			hspeed -= acceleration/2;
+		}
+	}
+	//check if right is pressed
+	if(keyboard_check(vk_right) || keyboard_check(ord("D")))
+	{
+		image_xscale = 1;
+		if (hspeed < maxSpeed)
+		{
+			//Gradually increase speed in right direction
+			hspeed += acceleration/2;
+		}
 	}
 }
 

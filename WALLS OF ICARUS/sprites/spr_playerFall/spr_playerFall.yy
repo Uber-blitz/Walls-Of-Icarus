@@ -1,10 +1,10 @@
 {
   "$GMSprite":"",
   "%Name":"spr_playerFall",
-  "bboxMode":0,
+  "bboxMode":2,
   "bbox_bottom":73,
-  "bbox_left":0,
-  "bbox_right":53,
+  "bbox_left":14,
+  "bbox_right":39,
   "bbox_top":0,
   "collisionKind":1,
   "collisionTolerance":0,

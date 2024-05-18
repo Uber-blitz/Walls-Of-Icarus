@@ -3,9 +3,13 @@
   "%Name":"ts_Level",
   "autoTileSets":[],
   "macroPageTiles":{
-    "SerialiseHeight":0,
-    "SerialiseWidth":0,
-    "TileSerialiseData":[],
+    "SerialiseHeight":12,
+    "SerialiseWidth":10,
+    "TileCompressedData":[
+      4,0,2,3,4,-7,0,3,28,29,30,-7,0,3,54,55,56,-17,0,5,53,54,0,56,57,-5,0,5,79,80,0,82,83,-41,0,3,184,185,
+      186,-7,0,3,210,184,212,-7,0,3,186,211,184,
+    ],
+    "TileDataFormat":1,
   },
   "name":"ts_Level",
   "out_columns":26,
