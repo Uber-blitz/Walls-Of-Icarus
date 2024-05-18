@@ -3,9 +3,11 @@
 //Set up variables
 sprites = [spr_playerIdle, spr_playerRun, spr_playerJump, spr_playerFall, spr_playerAttack, spr_playerAttack2, spr_playerHit, spr_playerDeath];
 HP = 3;
-maxSpeed = 5;
-drag = 0.5;
-acceleration = 0.5;
+moveSpeed = 5;
+jumpSpeed = 16;
+
+move_x = 0;
+move_y = 0;
 powerups = ["none", "earth", "air", "water", "fire"];
 currPowerup = powerups[0];
 jumpRising = false;
@@ -49,123 +51,18 @@ idleState = function()
 
 runningState = function()
 {
-	show_debug_message("Player is now moving");
-	sprite_index = sprites[1];
-	//Test if player has stopped moving
-	if(hspeed == 0 && vspeed == 0)
-	{
-		//Set players state to idle
-		state = idleState;
-	}
-	
-	//Check if player is falling.
-	if(!place_meeting(x, y + vspeed + 1, collisionTiles))
-	{
-		state = fallingState; //put the player in the falling state
-	}
-	
-	//check if left is pressed
-	if(keyboard_check(vk_left) || keyboard_check(ord("A")))
-	{
-		image_xscale = -1
-		if (hspeed > -maxSpeed)
-		{
-			//Gradually increase speed in left direction
-			hspeed -= acceleration;
-		}
-	}
-	//check if right is pressed
-	if(keyboard_check(vk_right) || keyboard_check(ord("D")))
-	{
-		image_xscale = 1;
-		if (hspeed < maxSpeed)
-		{
-			//Gradually increase speed in right direction
-			hspeed += acceleration;
-		}
-	}
-	
-	//If the player isn't pressing any of the movement keys, slow them down until they stop.
-	if(!keyboard_check(vk_left) && !keyboard_check(ord("A")) && !keyboard_check(vk_right) && !keyboard_check(ord("D")))
-	{
-		if (hspeed > 0)
-		{
-			hspeed -= drag;
-		}
-		if (hspeed < 0)
-		{
-			hspeed += drag;
-		}
-	}
-	
-	if(keyboard_check(ord("K")) || keyboard_check(ord("Z")))
-	{
-		sprite_index = sprites[4];
-		state = attackingState;//put the player in the attacking state
-	}
-	
-	if(keyboard_check(vk_up) || keyboard_check(ord("W")))
-	{
-		show_debug_message("Detected jump state input");
-		if(place_meeting(x, y + vspeed + 1, collisionTiles) && jumpRising == false)
-		{ 
-			jumpRising = true;
-			state = jumpingState; //put the player in the jumping state
-		}
-	}
+	move_x = (keyboard_check(vk_right)||keyboard_check(ord("d"))) - (keyboard_check(vk_left)||keyboard_check(ord("a")));
+	move_x = move_x * moveSpeed;
 }
 
 jumpingState = function()
 {
-	show_debug_message("Player is now jumping");
-		if(vspeed >= -10 && jumpRising == true)
-		{
-			vspeed -= acceleration;
-		}
-		if(vspeed <= -5 && jumpRising == true)
-		{
-			jumpRising = false;
-		}
-		if(jumpRising == false)
-		{
-			state = fallingState;
-		}
+	move_y = -jumpSpeed;
 }
 
 fallingState = function()
 {
-	vspeed += acceleration;
-	show_debug_message("Player is now falling");
-	sprite_index = sprites[3];
 	
-	//Test if player has stopped moving
-	if(place_meeting(x, y + vspeed, collisionTiles) && jumpRising == false)
-	{
-		//Set players state to idle
-		vspeed = 0;
-		hspeed = 0;
-		state = idleState;
-	}
-	
-	if(keyboard_check(vk_left) || keyboard_check(ord("A")))
-	{
-		image_xscale = -1
-		if (hspeed > -maxSpeed)
-		{
-			//Gradually increase speed in left direction
-			hspeed -= acceleration/2;
-		}
-	}
-	//check if right is pressed
-	if(keyboard_check(vk_right) || keyboard_check(ord("D")))
-	{
-		image_xscale = 1;
-		if (hspeed < maxSpeed)
-		{
-			//Gradually increase speed in right direction
-			hspeed += acceleration/2;
-		}
-	}
 }
 
 attackingState = function()
@@ -206,6 +103,16 @@ deathState = function()
 {
 	show_debug_message("Player is now dead");
 	sprite_index = sprites[7];
+}
+
+if(place_meeting(x, y + 2, collisionTiles))
+{
+	move_y = 0;
+	
+	if(keyboard_check(vk_up) || keyboard_check(ord("w")))
+	{
+		state = jumpingState;
+	}
 }
 
 state = idleState;
