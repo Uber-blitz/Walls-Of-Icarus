@@ -3,7 +3,7 @@
 //Set up variables
 sprites = [spr_playerIdle, spr_playerRun, spr_playerJump, spr_playerFall, spr_playerAttack, spr_playerAttack2, spr_playerHit, spr_playerDeath];
 HP = 3;
-moveSpeed = 5;
+moveSpeed = 6;
 jumpSpeed = 16;
 
 move_x = 0;
@@ -24,40 +24,67 @@ idleState = function()
 	//Check if the player is pressing left, a, right, or d
 	if(keyboard_check(vk_left) || keyboard_check(ord("A")) || keyboard_check(vk_right) || keyboard_check(ord("D")))
 	{
-		state = runningState; //put the player in the running state
+		show_debug_message("Move Input");
+		state = movingState; //put the player in the running state
 	}
 	//check if the player is pressing up, or w
-	if(keyboard_check(vk_up) || keyboard_check(ord("W")))
-	{
-		show_debug_message("Detected jump state input");
-		if(place_meeting(x, y + vspeed + 1, collisionTiles) && jumpRising == false)
-		{ 
-			jumpRising = true;
-			state = jumpingState; //put the player in the jumping state
-		}
-	}
 	//check if the player is falling
-	if(!place_meeting(x, y + vspeed + 1, collisionTiles))
-	{
-		state = fallingState; //put the player in the falling state
-	}
 	//check if player is pressing K, or Z
 	if(keyboard_check(ord("K")) || keyboard_check(ord("Z")))
 	{
 		sprite_index = sprites[4];
 		state = attackingState;//put the player in the attacking state
 	}
+	
+	if(place_meeting(x, y + 2, collisionTiles))
+	{
+		show_debug_message("Grounded");
+		move_y = 0;
+		
+		if (keyboard_check(vk_up) || keyboard_check(ord("W")))
+		{
+			show_debug_message("Jump Input")
+			state = movingState;
+		}
+	}
+	else if (move_y < 10)
+	{
+		move_y += 1;
+	}
+	
+	move_and_collide(move_x, move_y, collisionTiles);
 }
 
-runningState = function()
+movingState = function()
 {
-	move_x = (keyboard_check(vk_right)||keyboard_check(ord("d"))) - (keyboard_check(vk_left)||keyboard_check(ord("a")));
+	sprite_index = sprites[1];
+	move_x = (keyboard_check(vk_right) || keyboard_check(ord("D"))) - (keyboard_check(vk_left) || keyboard_check(ord("A")));
 	move_x = move_x * moveSpeed;
-}
-
-jumpingState = function()
-{
-	move_y = -jumpSpeed;
+	
+	if(place_meeting(x, y + 2, collisionTiles))
+	{
+		move_y = 0;
+		show_debug_message("Grounded");
+		if (keyboard_check(vk_up) || keyboard_check(ord("W")))
+		{
+			move_y = -jumpSpeed;
+		}
+	}
+	else if (move_y < 10)
+	{
+		move_y += 1;
+	}
+	
+	move_and_collide(move_x, move_y, collisionTiles);
+	
+	if(move_x != 0)
+	{
+		image_xscale = sign(move_x);
+	}
+	else
+	{
+		state = idleState;
+	}
 }
 
 fallingState = function()
@@ -67,7 +94,6 @@ fallingState = function()
 
 attackingState = function()
 {
-	hspeed = 0;
 	//If the player presses the attack buttons
 	if(keyboard_check(ord("Z")) || keyboard_check(ord("K")))
 	{
@@ -108,8 +134,9 @@ deathState = function()
 if(place_meeting(x, y + 2, collisionTiles))
 {
 	move_y = 0;
+	show_debug_message("Grounded");
 	
-	if(keyboard_check(vk_up) || keyboard_check(ord("w")))
+	if(keyboard_check(vk_up) || keyboard_check(ord("W")))
 	{
 		state = jumpingState;
 	}
