@@ -25,7 +25,7 @@
   ],
   "name":"spr_playerJump",
   "nineSlice":null,
-  "origin":6,
+  "origin":7,
   "parent":{
     "name":"Player",
     "path":"folders/Sprites/Player.yy",
@@ -83,7 +83,7 @@
     ],
     "visibleRange":null,
     "volume":1.0,
-    "xorigin":0,
+    "xorigin":23,
     "yorigin":74,
   },
   "swatchColours":null,

@@ -49,6 +49,7 @@ idleState = function()
 	}
 	else if (move_y < 10)
 	{
+		sprite_index = sprites[3];
 		move_y += 1;
 	}
 	
@@ -67,11 +68,13 @@ movingState = function()
 		show_debug_message("Grounded");
 		if (keyboard_check(vk_up) || keyboard_check(ord("W")))
 		{
+			sprite_index = sprites[2];
 			move_y = -jumpSpeed;
 		}
 	}
 	else if (move_y < 10)
 	{
+		sprite_index = sprites[3];
 		move_y += 1;
 	}
 	
