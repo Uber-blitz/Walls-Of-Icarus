@@ -10,6 +10,7 @@ move_x = 0;
 move_y = 0;
 powerups = ["none", "earth", "air", "water", "fire"];
 currPowerup = powerups[0];
+powerShardCol = 0;
 jumpRising = false;
 
 collisionTiles = layer_tilemap_get_id("TileCollider");
