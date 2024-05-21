@@ -3,6 +3,7 @@
 //Set up variables
 sprites = [spr_playerIdle, spr_playerRun, spr_playerJump, spr_playerFall, spr_playerAttack, spr_playerAttack2, spr_playerHit, spr_playerDeath];
 HP = 3;
+MaxHP = 3;
 moveSpeed = 6;
 jumpSpeed = 16;
 
@@ -11,6 +12,7 @@ move_y = 0;
 powerups = ["none", "earth", "air", "water", "fire"];
 currPowerup = powerups[0];
 powerShardCol = 0;
+neededPowerShard = 6;
 jumpRising = false;
 
 collisionTiles = layer_tilemap_get_id("TileCollider");
