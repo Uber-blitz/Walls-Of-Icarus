@@ -10,4 +10,8 @@ else
 	x = obj_player.x - 300;
 }
 y = obj_player.y;
+if(keyboard_check(vk_up) || keyboard_check(ord("W")))
+{
+	y = obj_player.y - 150;
+}
 
