@@ -6,6 +6,7 @@ HP = 3;
 MaxHP = 3;
 moveSpeed = 6;
 jumpSpeed = 16;
+lastElementType = 0;
 
 move_x = 0;
 move_y = 0;
@@ -13,7 +14,6 @@ powerups = ["none", "earth", "air", "water", "fire"];
 currPowerup = powerups[0];
 powerShardCol = 0;
 neededPowerShard = 6;
-jumpRising = false;
 
 collisionTiles = layer_tilemap_get_id("TileCollider");
 #endregion
@@ -146,6 +146,22 @@ if(place_meeting(x, y + 2, collisionTiles))
 	{
 		state = jumpingState;
 	}
+}
+
+switch(room)
+{
+	case rm_level1:
+	neededPowerShard = 5;
+	break;
+	case rm_level2:
+	neededPowerShard = 5;
+	break;
+	case rm_level3:
+	neededPowerShard = 5;
+	break;
+	case rm_level4:
+	neededPowerShard = 5;
+	break;
 }
 
 state = idleState;

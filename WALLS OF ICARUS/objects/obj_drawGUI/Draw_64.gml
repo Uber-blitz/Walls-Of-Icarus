@@ -15,3 +15,19 @@ for(var i = 0; i < obj_player.MaxHP; i ++)
 draw_sprite_ext(spr_pIndicator, 0, (view_wport[0] * 1.5) + 90, -5, 2, 2, 0, c_white, 1);
 draw_set_font(fnt_uiText);
 draw_text((view_wport[0] * 1.5) + 132.5, 120, string(obj_player.powerShardCol) + "/" + string(obj_player.neededPowerShard));
+
+//PowerUp in Indicator
+switch(currPowerup)
+{
+	case "none":
+	
+	break;
+	case "earth":
+	break;
+	case "air":
+	break;
+	case "water":
+	break;
+	case "fire":
+	break;
+}
