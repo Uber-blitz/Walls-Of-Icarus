@@ -2,7 +2,7 @@
 // You can write your code in this editor
 
 //Variable Setup
-sprites = [spr_golemIdle, spr_golemRun, spr_golemAttack, spr_golemHit, spr_golemDeath];
+sprites = [spr_skeletonIdle, spr_skeletonWalk, spr_skeletonAttack, spr_skeletonHit, spr_skeletonDeath];
 HP = 3;
 MaxHP = 3;
 moveSpeed = 4;

@@ -39,6 +39,7 @@
     {"name":"obj_player","order":1,"path":"objects/obj_player/obj_player.yy",},
     {"name":"obj_playerCam","order":2,"path":"objects/obj_playerCam/obj_playerCam.yy",},
     {"name":"obj_sequenceManager","order":1,"path":"objects/obj_sequenceManager/obj_sequenceManager.yy",},
+    {"name":"obj_skeleton","order":1,"path":"objects/obj_skeleton/obj_skeleton.yy",},
     {"name":"rm_level1","order":1,"path":"rooms/rm_level1/rm_level1.yy",},
     {"name":"rm_level2","order":2,"path":"rooms/rm_level2/rm_level2.yy",},
     {"name":"rm_level3","order":3,"path":"rooms/rm_level3/rm_level3.yy",},
