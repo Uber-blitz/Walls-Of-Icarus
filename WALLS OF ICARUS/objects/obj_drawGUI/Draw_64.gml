@@ -17,17 +17,21 @@ draw_set_font(fnt_uiText);
 draw_text((view_wport[0] * 1.5) + 132.5, 120, string(obj_player.powerShardCol) + "/" + string(obj_player.neededPowerShard));
 
 //PowerUp in Indicator
-switch(currPowerup)
+switch(obj_player.currPowerup)
 {
 	case "none":
-	
+		
 	break;
 	case "earth":
+		draw_sprite_ext(spr_powerupIco, 0, (view_wport[0] * 1.5) + 122.5, 26.5, 4, 4, 0, c_white, 1);
 	break;
 	case "air":
+		draw_sprite_ext(spr_powerupIco, 1, (view_wport[0] * 1.5) + 122.5, 26.5, 4, 4, 0, c_white, 1);
 	break;
 	case "water":
+		draw_sprite_ext(spr_powerupIco, 2, (view_wport[0] * 1.5) + 122.5, 26.5, 4, 4, 0, c_white, 1);
 	break;
 	case "fire":
+		draw_sprite_ext(spr_powerupIco, 3, (view_wport[0] * 1.5) + 122.5, 26.5, 4, 4, 0, c_white, 1);
 	break;
 }

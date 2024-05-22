@@ -68,7 +68,7 @@
     {"id":{"name":"scr_writeFile","path":"scripts/scr_writeFile/scr_writeFile.yy",},},
     {"id":{"name":"sq_menuOptions","path":"sequences/sq_menuOptions/sq_menuOptions.yy",},},
     {"id":{"name":"sq_titleIntro","path":"sequences/sq_titleIntro/sq_titleIntro.yy",},},
-    {"id":{"name":"fire_spell","path":"sprites/fire_spell/fire_spell.yy",},},
+    {"id":{"name":"spr_powerupIco","path":"sprites/spr_powerupIco/spr_powerupIco.yy",},},
     {"id":{"name":"spr_batAttack","path":"sprites/spr_batAttack/spr_batAttack.yy",},},
     {"id":{"name":"spr_batDeath","path":"sprites/spr_batDeath/spr_batDeath.yy",},},
     {"id":{"name":"spr_batFly","path":"sprites/spr_batFly/spr_batFly.yy",},},

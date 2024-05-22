@@ -44,7 +44,7 @@
     {"name":"rm_level4","order":4,"path":"rooms/rm_level4/rm_level4.yy",},
     {"name":"scr_writeFile","order":1,"path":"scripts/scr_writeFile/scr_writeFile.yy",},
     {"name":"sq_menuOptions","order":1,"path":"sequences/sq_menuOptions/sq_menuOptions.yy",},
-    {"name":"fire_spell","order":3,"path":"sprites/fire_spell/fire_spell.yy",},
+    {"name":"spr_powerupIco","order":3,"path":"sprites/spr_powerupIco/spr_powerupIco.yy",},
     {"name":"spr_batDeath","order":1,"path":"sprites/spr_batDeath/spr_batDeath.yy",},
     {"name":"spr_batFly","order":2,"path":"sprites/spr_batFly/spr_batFly.yy",},
     {"name":"spr_batHit","order":3,"path":"sprites/spr_batHit/spr_batHit.yy",},
