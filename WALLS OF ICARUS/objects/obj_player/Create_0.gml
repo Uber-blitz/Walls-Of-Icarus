@@ -93,11 +93,6 @@ movingState = function()
 	}
 }
 
-fallingState = function()
-{
-	
-}
-
 attackingState = function()
 {
 	//If the player presses the attack buttons
