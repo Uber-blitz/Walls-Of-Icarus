@@ -114,7 +114,6 @@ attackingState = function()
 	}
 	if(!keyboard_check(ord("Z")) && !keyboard_check(ord("K")) && image_index >= image_number - 1)
 	{
-		hspeed = 0;
 		state = idleState;
 	}
 }

@@ -1,4 +1,4 @@
-if(state != deathState)
+if(state != deathState && HP > 0)
 {
 	state = hurtState;
 }

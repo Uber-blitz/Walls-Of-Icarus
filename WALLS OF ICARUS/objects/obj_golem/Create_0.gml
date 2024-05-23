@@ -6,10 +6,18 @@ sprites = [spr_golemIdle, spr_golemRun, spr_golemAttack, spr_golemHit, spr_golem
 HP = 3;
 MaxHP = 3;
 moveSpeed = 4;
+canBeHurt = true;
 
 move_x = 0;
 move_y = 0;
 movingRight = 1;
+makeVulnerable = function()
+{
+	canBeHurt = true;
+	state = movingState;
+}
+makeVulnerableTimer = time_source_create(time_source_global, 1, time_source_units_seconds, makeVulnerable);
+
 
 collisionTiles = layer_tilemap_get_id("TileCollider");
 
@@ -71,13 +79,20 @@ attackingState = function()
 
 hurtState = function()
 {
-	sprite_index = sprites[3];
+	if(canBeHurt)
+	{
+		HP --;
+		sprite_index = sprites[3];
+	}
+	canBeHurt = false;
 	
-	HP --;
+	show_debug_message("oochie owchy Golem");
 	
 	if(sprite_index == sprites[3] && image_index >= image_number - 1)
 		{
-			state = movingState;
+			sprite_index = sprites[0];
+			image_index = 1;
+			time_source_start(makeVulnerableTimer);
 		}
 		
 	if (HP <= 0)
@@ -94,6 +109,8 @@ deathState = function()
 		{
 			instance_destroy();
 		}
+	
+	global.wasEnemeyKilled = true;
 }
 
 state = movingState;

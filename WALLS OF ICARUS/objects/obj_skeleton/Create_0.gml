@@ -6,12 +6,19 @@ sprites = [spr_skeletonIdle, spr_skeletonWalk, spr_skeletonAttack, spr_skeletonH
 HP = 3;
 MaxHP = 3;
 moveSpeed = 4;
+canBeHurt = true;
 
 move_x = 0;
 move_y = 0;
 movingRight = 1;
 
 collisionTiles = layer_tilemap_get_id("TileCollider");
+makeVulnerable = function()
+{
+	canBeHurt = true;
+	state = movingState;
+}
+makeVulnerableTimer = time_source_create(time_source_global, 1, time_source_units_seconds, makeVulnerable);
 
 //enemy states
 movingState = function()
@@ -71,13 +78,20 @@ attackingState = function()
 
 hurtState = function()
 {
-	sprite_index = sprites[3];
+	if(canBeHurt)
+	{
+		HP --;
+		sprite_index = sprites[3];
+	}
+	canBeHurt = false;
 	
-	HP --;
+	show_debug_message("oochie owchy Skeleton");
 	
 	if(sprite_index == sprites[3] && image_index >= image_number - 1)
 		{
-			state = movingState;
+			sprite_index = sprites[0];
+			image_index = 1;
+			time_source_start(makeVulnerableTimer);
 		}
 		
 	if (HP <= 0)
@@ -88,12 +102,15 @@ hurtState = function()
 
 deathState = function()
 {
+	canBeHurt = false;
 	sprite_index = sprites[4];
 	
 	if(sprite_index == sprites[4] && image_index >= image_number - 1)
 		{
 			instance_destroy();
 		}
+	
+	global.wasEnemeyKilled = true;
 }
 
 state = movingState;
