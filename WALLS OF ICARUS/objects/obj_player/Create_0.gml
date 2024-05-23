@@ -56,7 +56,7 @@ idleState = function()
 		move_y += 1;
 	}
 	
-	move_and_collide(move_x, move_y, collisionTiles);
+	move_and_collide(move_x, move_y, [collisionTiles, obj_wall]);
 }
 
 movingState = function()
@@ -81,7 +81,7 @@ movingState = function()
 		move_y += 1;
 	}
 	
-	move_and_collide(move_x, move_y, collisionTiles);
+	move_and_collide(move_x, move_y, [collisionTiles, obj_wall]);
 	
 	if(move_x != 0)
 	{
@@ -107,6 +107,10 @@ attackingState = function()
 		{
 			sprite_index = sprites[4];
 		}
+	if(!instance_exists(obj_pAttackHurtbox))
+	{
+		instance_create_layer(x, y, "Instances", obj_pAttackHurtbox);
+	}
 	}
 	if(!keyboard_check(ord("Z")) && !keyboard_check(ord("K")) && image_index >= image_number - 1)
 	{

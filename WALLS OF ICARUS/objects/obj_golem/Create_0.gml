@@ -71,10 +71,29 @@ attackingState = function()
 
 hurtState = function()
 {
+	sprite_index = sprites[3];
+	
+	HP --;
+	
+	if(sprite_index == sprites[3] && image_index >= image_number - 1)
+		{
+			state = movingState;
+		}
+		
+	if (HP <= 0)
+	{
+		state = deathState;
+	}
 }
 
 deathState = function()
 {
+	sprite_index = sprites[4];
+	
+	if(sprite_index == sprites[4] && image_index >= image_number - 1)
+		{
+			instance_destroy();
+		}
 }
 
 state = movingState;
