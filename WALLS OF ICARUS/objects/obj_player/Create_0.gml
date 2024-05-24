@@ -7,6 +7,15 @@ MaxHP = 3;
 moveSpeed = 6;
 jumpSpeed = 16;
 lastElementType = 0;
+canBeHurt = true;
+
+//script to make player vulnerable again
+makeVulnerable = function()
+{
+	canBeHurt = true;
+}
+
+makeVulnerableTimer = time_source_create(time_source_global, 3, time_source_units_seconds, makeVulnerable);
 
 move_x = 0;
 move_y = 0;
@@ -120,9 +129,20 @@ attackingState = function()
 
 hurtState = function()
 {
-	HP--;
-	show_debug_message("Player got hurt");
-	sprite_index = sprites[6];
+	if(canBeHurt)
+	{
+		HP--;
+		show_debug_message("Player got hurt");
+		sprite_index = sprites[6];
+		canBeHurt = false;
+	}
+	
+	if(sprite_index == sprites[6] && image_index >= image_number - 1)
+		{
+			state = movingState;
+			time_source_start(makeVulnerableTimer);
+		}
+	
 	if(HP == 0)
 	{
 		state = deathState;
@@ -133,6 +153,11 @@ deathState = function()
 {
 	show_debug_message("Player is now dead");
 	sprite_index = sprites[7];
+	
+	if (image_index + image_speed >= image_number)
+	{
+		image_speed = 0;
+	}
 }
 
 if(place_meeting(x, y + 2, collisionTiles))

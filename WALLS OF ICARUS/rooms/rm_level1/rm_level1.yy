@@ -117,7 +117,7 @@
           1,-10,-2147483648,-9,0,-3,1,-13,0,-215,-2147483648,-2,1,-8,-2147483648,-4,0,-5,1,-16,0,-217,-2147483648,
           -12,1,-1640,-2147483648,
         ],"TileDataFormat":1,},"tilesetId":{"name":"ts_collider","path":"tilesets/ts_collider/ts_collider.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
-    {"$GMRTileLayer":"","%Name":"TilemapForeground","depth":300,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"TilemapForeground","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":63,"SerialiseWidth":250,"TileCompressedData":[
+    {"$GMRTileLayer":"","%Name":"TilemapForeground","depth":300,"effectEnabled":true,"effectType":"none","gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"TilemapForeground","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":63,"SerialiseWidth":250,"TileCompressedData":[
           -1017,-2147483648,-2,0,-481,-2147483648,51,2,3,4,2,3,4,2,3,4,2,3,4,2,3,4,2,3,4,2,3,4,2,3,4,2,3,4,2,3,
           4,2,3,4,2,3,4,2,3,4,2,3,4,2,3,4,2,3,4,2,3,5,-4,0,246,1,4,2,3,4,2,3,4,2,3,4,2,3,4,2,3,4,2,3,4,2,3,4,2,
           3,4,2,3,4,2,3,4,2,3,4,2,3,4,2,3,4,2,3,4,2,3,4,2,3,4,2,3,4,2,3,4,2,3,4,2,3,4,2,3,4,2,3,4,2,3,4,2,3,4,
