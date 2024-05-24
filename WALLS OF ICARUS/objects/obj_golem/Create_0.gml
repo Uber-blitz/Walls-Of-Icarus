@@ -7,10 +7,14 @@ HP = 3;
 MaxHP = 3;
 moveSpeed = 4;
 canBeHurt = true;
+nextObject = 30;
+golemDir = 0;
 
 move_x = 0;
 move_y = 0;
 movingRight = 1;
+
+hasAttacked = false;
 makeVulnerable = function()
 {
 	canBeHurt = true;
@@ -71,10 +75,25 @@ movingState = function()
 
 attackingState = function()
 {
-	if(sprite_index == sprites[2] && image_index >= image_number - 1)
+	if(!hasAttacked)
+	{
+		time_source_start(initialPillar);
+		if(obj_wall.elementType == 3)
 		{
-			state = movingState;
+			time_source_start(firstPillar);
+			time_source_start(secondPillar);
+			time_source_start(thirdPillar);
 		}
+		hasAttacked = true;
+	}
+	if(!instance_exists(obj_golemAttack))
+	{
+		hasAttacked = false;
+	}
+	if(sprite_index == sprites[2] && image_index >= image_number - 1 && hasAttacked == false)
+	{
+			state = movingState;
+	}
 }
 
 hurtState = function()
@@ -112,5 +131,27 @@ deathState = function()
 	
 	global.wasEnemeyKilled = true;
 }
+//ts functions
+spawnInit = function()
+{
+	instance_create_layer(x + (image_xscale * nextObject), y, "Instances", obj_golemAttackInit);
+}
+spawnFirst = function()
+{
+	instance_create_layer(x + (image_xscale * (nextObject * 2)), y, "Instances", obj_golemAttack);
+}
+spawnSecond = function()
+{
+	instance_create_layer(x + (image_xscale * (nextObject * 3)), y, "Instances", obj_golemAttack);
+}
+spawnThird = function()
+{
+	instance_create_layer(x + (image_xscale * (nextObject * 4)), y, "Instances", obj_golemAttack);
+}
+//timesources
+initialPillar = time_source_create(time_source_global, 0.5, time_source_units_seconds, spawnInit);
+firstPillar =	time_source_create(time_source_global, 1, time_source_units_seconds, spawnFirst);
+secondPillar =	time_source_create(time_source_global, 1.5, time_source_units_seconds, spawnSecond);
+thirdPillar =	time_source_create(time_source_global, 2, time_source_units_seconds, spawnThird);
 
 state = movingState;

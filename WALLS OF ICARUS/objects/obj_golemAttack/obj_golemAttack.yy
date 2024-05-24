@@ -3,6 +3,7 @@
   "%Name":"obj_golemAttack",
   "eventList":[
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
   "name":"obj_golemAttack",
@@ -30,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_golemAttackHurt",
-    "path":"sprites/spr_golemAttackHurt/spr_golemAttackHurt.yy",
+    "name":"spr_earthPowerup",
+    "path":"sprites/spr_earthPowerup/spr_earthPowerup.yy",
   },
   "spriteMaskId":null,
   "visible":true,
