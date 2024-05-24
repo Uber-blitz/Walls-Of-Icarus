@@ -20,13 +20,6 @@ makeVulnerable = function()
 }
 makeVulnerableTimer = time_source_create(time_source_global, 1, time_source_units_seconds, makeVulnerable);
 
-spawnHurtbox = function()
-	{
-		instance_create_layer(x + (image_xscale * 70), y, "Instances", obj_skeletonSword);
-	}
-	
-hurtboxTimesource = time_source_create(time_source_global, 1, time_source_units_seconds, spawnHurtbox);
-
 //enemy states
 movingState = function()
 {
@@ -77,9 +70,9 @@ movingState = function()
 
 attackingState = function()
 {
-	if(!instance_exists(obj_skeletonSword))
+	if(image_index == 7 && !instance_exists(obj_skeletonSword))
 	{
-		time_source_start(hurtboxTimesource);
+		instance_create_layer(x + (image_xscale * 70), y, "Instances", obj_skeletonSword);
 	}
 	
 	if(sprite_index == sprites[2] && image_index >= image_number - 1)

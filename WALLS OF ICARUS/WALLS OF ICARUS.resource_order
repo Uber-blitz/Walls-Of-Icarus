@@ -49,7 +49,6 @@
     {"name":"obj_skeleton","order":1,"path":"objects/obj_skeleton/obj_skeleton.yy",},
     {"name":"obj_skeletonExplode","order":1,"path":"objects/obj_skeletonExplode/obj_skeletonExplode.yy",},
     {"name":"obj_wall","order":7,"path":"objects/obj_wall/obj_wall.yy",},
-    {"name":"obj_skeletonSword","order":2,"path":"objects/obj_skeletonSword/obj_skeletonSword.yy",},
     {"name":"rm_level1","order":1,"path":"rooms/rm_level1/rm_level1.yy",},
     {"name":"rm_level2","order":2,"path":"rooms/rm_level2/rm_level2.yy",},
     {"name":"rm_level3","order":3,"path":"rooms/rm_level3/rm_level3.yy",},
