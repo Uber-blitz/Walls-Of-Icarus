@@ -7,7 +7,7 @@ HP = 3;
 MaxHP = 3;
 moveSpeed = 4;
 canBeHurt = true;
-nextObject = 30;
+nextObject = 80;
 golemDir = 0;
 
 move_x = 0;
@@ -86,7 +86,7 @@ attackingState = function()
 		}
 		hasAttacked = true;
 	}
-	if(!instance_exists(obj_golemAttack))
+	if(!instance_exists(obj_golemAttack) && !instance_exists(obj_golemAttackInit))
 	{
 		hasAttacked = false;
 	}
