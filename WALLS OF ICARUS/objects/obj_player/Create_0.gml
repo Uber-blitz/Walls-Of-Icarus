@@ -157,6 +157,7 @@ deathState = function()
 	if (image_index + image_speed >= image_number)
 	{
 		image_speed = 0;
+		layer_sequence_create("Fade", view_wport[0], view_hport[0], sq_playerDieFade);
 	}
 }
 
