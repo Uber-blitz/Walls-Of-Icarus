@@ -1,15 +1,15 @@
 {
   "$GMObject":"",
-  "%Name":"obj_golemAttack",
+  "%Name":"obj_pEarthAttack",
   "eventList":[
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_golemAttack",
+  "name":"obj_pEarthAttack",
   "overriddenProperties":[],
   "parent":{
-    "name":"Golem",
-    "path":"folders/Objects/Game/Enemies/EnemyAttacks/Golem.yy",
+    "name":"Earth",
+    "path":"folders/Objects/Game/Player Stuff/Powerups/Earth.yy",
   },
   "parentObjectId":null,
   "persistent":false,

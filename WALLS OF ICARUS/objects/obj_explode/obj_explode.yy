@@ -1,15 +1,15 @@
 {
   "$GMObject":"",
-  "%Name":"obj_golemAttack",
+  "%Name":"obj_explode",
   "eventList":[
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_golemAttack",
+  "name":"obj_explode",
   "overriddenProperties":[],
   "parent":{
-    "name":"Golem",
-    "path":"folders/Objects/Game/Enemies/EnemyAttacks/Golem.yy",
+    "name":"Fire",
+    "path":"folders/Objects/Game/Player Stuff/Powerups/Fire.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -30,8 +30,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_earthPowerup",
-    "path":"sprites/spr_earthPowerup/spr_earthPowerup.yy",
+    "name":"spr_explode",
+    "path":"sprites/spr_explode/spr_explode.yy",
   },
   "spriteMaskId":null,
   "visible":true,

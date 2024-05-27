@@ -78,7 +78,7 @@ attackingState = function()
 	if(!hasAttacked)
 	{
 		time_source_start(initialPillar);
-		if(obj_wall.elementType == 3)
+		if(instance_exists(obj_wall) && obj_wall.elementType == 3)
 		{
 			time_source_start(firstPillar);
 			time_source_start(secondPillar);

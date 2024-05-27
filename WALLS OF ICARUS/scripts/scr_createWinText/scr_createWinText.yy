@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"scr_createWinText",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_createWinText",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
