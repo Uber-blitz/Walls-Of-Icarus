@@ -30,6 +30,10 @@ bounceFunc = function()
 	if(place_meeting(x, y+2, collisionTiles))
 	{
 		bounced = false;
+		if(instance_exists(obj_wall) && obj_wall.elementType == 1)
+		{
+			instance_create_layer(x, y, "Instances", obj_slimeWaterVort, {facingDir : image_xscale});
+		}
 		move_y = -jumpSpeed;
 		move_and_collide(move_x, move_y, collisionTiles);
 		show_debug_message("Slime should be in the air");

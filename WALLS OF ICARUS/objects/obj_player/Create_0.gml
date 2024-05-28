@@ -153,7 +153,7 @@ if(!wallDestroyed)
 				if(!powerupUsed)
 					{
 						powerupUsed = true;
-						instance_create_layer(x, y - 100, "Instances", obj_waterVortex,{facingDir : image_xscale});
+						instance_create_layer(x, y, "Instances", obj_waterVortex,{facingDir : image_xscale});
 					}
 				break;
 				//fire
@@ -161,7 +161,7 @@ if(!wallDestroyed)
 					if(!powerupUsed)
 					{
 						powerupUsed = true;
-						instance_create_layer(x, y - 100, "Instances", obj_fireball,{facingDir : image_xscale});
+						instance_create_layer(x, y - 50, "Instances", obj_fireball,{facingDir : image_xscale});
 					}
 				break;
 				//none
