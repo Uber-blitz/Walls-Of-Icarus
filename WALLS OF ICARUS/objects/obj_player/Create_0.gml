@@ -150,13 +150,18 @@ if(!wallDestroyed)
 				break;
 				//water
 				case "water":
+				if(!powerupUsed)
+					{
+						powerupUsed = true;
+						instance_create_layer(x, y - 100, "Instances", obj_waterVortex,{facingDir : image_xscale});
+					}
 				break;
 				//fire
 				case "fire":
 					if(!powerupUsed)
 					{
 						powerupUsed = true;
-						instance_create_layer(x, y - 80, "Instances", obj_fireball,{facingDir : image_xscale});
+						instance_create_layer(x, y - 100, "Instances", obj_fireball,{facingDir : image_xscale});
 					}
 				break;
 				//none

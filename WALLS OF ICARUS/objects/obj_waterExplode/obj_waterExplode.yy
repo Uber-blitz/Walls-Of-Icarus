@@ -1,15 +1,15 @@
 {
   "$GMObject":"",
-  "%Name":"obj_skeletonExplode",
+  "%Name":"obj_waterExplode",
   "eventList":[
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_skeletonExplode",
+  "name":"obj_waterExplode",
   "overriddenProperties":[],
   "parent":{
-    "name":"Skeleton",
-    "path":"folders/Objects/Game/Enemies/EnemyAttacks/Skeleton.yy",
+    "name":"Water",
+    "path":"folders/Objects/Game/Player Stuff/Powerups/Water.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -30,8 +30,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_explode",
-    "path":"sprites/spr_explode/spr_explode.yy",
+    "name":"spr_waterExplode",
+    "path":"sprites/spr_waterExplode/spr_waterExplode.yy",
   },
   "spriteMaskId":null,
   "visible":true,

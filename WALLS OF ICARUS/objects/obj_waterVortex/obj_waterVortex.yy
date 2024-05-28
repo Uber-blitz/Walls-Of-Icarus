@@ -1,17 +1,17 @@
 {
   "$GMObject":"",
-  "%Name":"obj_skeletonFireball",
+  "%Name":"obj_waterVortex",
   "eventList":[
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":40,"eventType":7,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_skeletonFireball",
+  "name":"obj_waterVortex",
   "overriddenProperties":[],
   "parent":{
-    "name":"Skeleton",
-    "path":"folders/Objects/Game/Enemies/EnemyAttacks/Skeleton.yy",
+    "name":"Water",
+    "path":"folders/Objects/Game/Player Stuff/Powerups/Water.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -34,8 +34,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_fireball",
-    "path":"sprites/spr_fireball/spr_fireball.yy",
+    "name":"spr_waterVortex",
+    "path":"sprites/spr_waterVortex/spr_waterVortex.yy",
   },
   "spriteMaskId":null,
   "visible":true,

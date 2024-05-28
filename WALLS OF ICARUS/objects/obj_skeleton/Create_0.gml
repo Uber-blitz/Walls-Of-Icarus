@@ -73,6 +73,10 @@ attackingState = function()
 	if(image_index == 7 && !instance_exists(obj_skeletonSword))
 	{
 		instance_create_layer(x + (image_xscale * 70), y, "Instances", obj_skeletonSword);
+		if(instance_exists(obj_wall) && obj_wall.elementType == 0)
+		{
+			instance_create_layer(x, y-80, "Instances", obj_skeletonFireball, {facingDir : image_xscale});
+		}
 	}
 	
 	if(sprite_index == sprites[2] && image_index >= image_number - 1)
