@@ -8,7 +8,6 @@ MaxHP = 3;
 moveSpeed = 4;
 canBeHurt = true;
 nextObject = 80;
-golemDir = 0;
 
 move_x = 0;
 move_y = 0;

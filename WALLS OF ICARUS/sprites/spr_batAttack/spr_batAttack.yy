@@ -19,7 +19,6 @@
     {"$GMSpriteFrame":"","%Name":"7ba8b5b3-2f7d-4fff-b9d6-57b2b68075db","name":"7ba8b5b3-2f7d-4fff-b9d6-57b2b68075db","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
     {"$GMSpriteFrame":"","%Name":"07c6b8f1-f1b2-4962-8560-c005112345e0","name":"07c6b8f1-f1b2-4962-8560-c005112345e0","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
     {"$GMSpriteFrame":"","%Name":"f72ac7ab-4e08-4e14-acf2-badbcc3ad1a9","name":"f72ac7ab-4e08-4e14-acf2-badbcc3ad1a9","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
-    {"$GMSpriteFrame":"","%Name":"e005529e-9709-4512-90a6-7cab7760eba6","name":"e005529e-9709-4512-90a6-7cab7760eba6","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
@@ -56,7 +55,7 @@
     },
     "eventStubScript":null,
     "eventToFunction":{},
-    "length":8.0,
+    "length":7.0,
     "lockOrigin":false,
     "moments":{
       "$KeyframeStore<MomentsEventKeyframe>":"",
@@ -66,7 +65,7 @@
     },
     "name":"spr_batAttack",
     "playback":1,
-    "playbackSpeed":30.0,
+    "playbackSpeed":10.0,
     "playbackSpeedType":0,
     "resourceType":"GMSequence",
     "resourceVersion":"2.0",
@@ -96,9 +95,6 @@
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
                 "0":{"$SpriteFrameKeyframe":"","Id":{"name":"f72ac7ab-4e08-4e14-acf2-badbcc3ad1a9","path":"sprites/spr_batAttack/spr_batAttack.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"746a1fbc-551c-499a-ba49-61cd5ecdb2a4","IsCreationKey":false,"Key":6.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"e005529e-9709-4512-90a6-7cab7760eba6","path":"sprites/spr_batAttack/spr_batAttack.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"5343bfa4-f067-4fb6-aaae-f8bc71dce60c","IsCreationKey":false,"Key":7.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
