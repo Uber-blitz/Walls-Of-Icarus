@@ -38,6 +38,7 @@ bounceFunc = function()
 		move_and_collide(move_x, move_y, collisionTiles);
 		show_debug_message("Slime should be in the air");
 	}
+	move_and_collide(move_x, move_y, collisionTiles);
 }
 
 bounceTimer = time_source_create(time_source_global, 1, time_source_units_seconds, bounceFunc);
