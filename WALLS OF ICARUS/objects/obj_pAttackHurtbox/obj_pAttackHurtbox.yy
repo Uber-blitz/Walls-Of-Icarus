@@ -35,5 +35,5 @@
     "path":"sprites/spr_playerHurtbox/spr_playerHurtbox.yy",
   },
   "spriteMaskId":null,
-  "visible":true,
+  "visible":false,
 }
