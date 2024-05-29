@@ -28,17 +28,25 @@ makeVulnerableTimer = time_source_create(time_source_global, 1, time_source_unit
 moveState = function()
 {
 	sprite_index = sprites[0];
-	if(movingRight == 1 && !place_meeting(x + 2, y, collisionTiles))
+	if(movingRight == 1 && !place_meeting(x + 2, y, [collisionTiles, obj_boundingBox]))
 	{
 		image_xscale = 1;
 		move_x = movingRight * moveSpeed;
 		move_y = 0;
 	}
-	if(movingRight == -1 && !place_meeting(x - 2, y, collisionTiles))
+	if(movingRight == -1 && !place_meeting(x - 2, y, [collisionTiles, obj_boundingBox]))
 	{
 		image_xscale = -1;
 		move_x = movingRight * moveSpeed;
 		move_y = 0;
+	}
+	if (place_meeting(x + 2, y, [collisionTiles, obj_boundingBox]))
+	{
+		movingRight = -1;
+	}
+	if (place_meeting(x - 2, y, [collisionTiles, obj_boundingBox]))
+	{
+		movingRight = 1;
 	}
 	if (collision_circle(x, y, 100, obj_player, false, true))
 	{
@@ -87,6 +95,10 @@ attackState = function()
 			image_xscale = -1;
 			movingRight = -1;
 			move_x = movingRight * (moveSpeed * 1.5);
+		}
+		if (instance_exists(obj_wall) && obj_wall.elementType == 2 && !hasAttacked)
+		{
+			instance_create_layer(x, y, "Instances", obj_batBlast, {enemyInstance : instance_id_get(self)})
 		}
 		move_and_collide(move_x, move_y, collisionTiles);
 	if (!hasAttacked)

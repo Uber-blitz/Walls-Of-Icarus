@@ -12,6 +12,7 @@ nextObject = 80;
 powerupUsed = false;
 playerInvul = false;
 wallDestroyed = false;
+debug = false;
 
 //script to make player vulnerable again
 makeVulnerable = function()
@@ -73,7 +74,7 @@ if(!wallDestroyed)
 			move_y += 1;
 		}
 		
-		move_and_collide(move_x, move_y, [collisionTiles, obj_wall]);
+		move_and_collide(move_x, move_y, [collisionTiles, obj_wall, obj_boundingBox]);
 	}
 	#endregion
 	#region Moving State
@@ -101,7 +102,7 @@ if(!wallDestroyed)
 				move_y += 1;
 			}
 			
-			move_and_collide(move_x, move_y, [collisionTiles, obj_wall]);
+			move_and_collide(move_x, move_y, [collisionTiles, obj_wall, obj_boundingBox]);
 			
 			if(move_x != 0)
 			{
@@ -147,6 +148,11 @@ if(!wallDestroyed)
 				break;
 				//air
 				case "air":
+					if(!powerupUsed)
+					{
+						powerupUsed = true;
+						instance_create_layer(x, y, "Instances", obj_pAirBlast);
+					}
 				break;
 				//water
 				case "water":
@@ -214,7 +220,7 @@ if(!wallDestroyed)
 		if (image_index + image_speed >= image_number)
 		{
 			image_speed = 0;
-			layer_sequence_create("Fade", obj_playerCam.x - 50, obj_playerCam.y, sq_playerDieFade);
+			layer_sequence_create("Fade", camera_get_view_x(view_camera[0]) + 50, camera_get_view_y(view_camera[0] + 30), sq_playerDieFade);
 		}
 	}
 }

@@ -1,4 +1,4 @@
-if(elementType == 1 && !obj_player.wallDestroyed)
+if(elementType == 2 && !obj_player.wallDestroyed)
 {
 	obj_player.playerInvul = true;
 	obj_player.wallDestroyed = true;

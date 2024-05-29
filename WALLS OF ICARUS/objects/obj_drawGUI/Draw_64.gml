@@ -35,3 +35,8 @@ switch(obj_player.currPowerup)
 		draw_sprite_ext(spr_powerupIco, 3, (view_wport[0] * 1.5) + 122.5, 26.5, 4, 4, 0, c_white, 1);
 	break;
 }
+
+if (obj_player.debug)
+{
+	draw_text_ext((view_wport[0] / 2), view_hport[0] / 10, "DEBUG ENABLED", 3, 300);
+}
