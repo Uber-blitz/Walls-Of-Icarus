@@ -1,5 +1,5 @@
 if(y > 800)
 {
-	y = 100;
+	y = 80;
 	state = hurtState;
 }
