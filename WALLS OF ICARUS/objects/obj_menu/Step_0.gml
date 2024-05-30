@@ -59,6 +59,11 @@ if(acceptKey)
 				break;
 				//Controls
 				case 1:
+				controlsMenu ++;
+				if(controlsMenu > 2)
+				{
+					controlsMenu = 0;
+				}
 				break;
 				//Back
 				case 2:

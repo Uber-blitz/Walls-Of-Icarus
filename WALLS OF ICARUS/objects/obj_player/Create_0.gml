@@ -125,10 +125,12 @@ if(!wallDestroyed)
 			if(sprite_index == sprites[4] && image_index >= image_number - 1)
 			{
 				sprite_index = sprites[5];
+				audio_play_sound(snd_SwordSwing, 1, false);
 			}
 			if(sprite_index == sprites[5] && image_index >= image_number - 1)
 			{
 				sprite_index = sprites[4];
+				audio_play_sound(snd_SwordSwing, 1, false);
 			}
 			if(!instance_exists(obj_pAttackHurtbox))
 			{

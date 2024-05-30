@@ -22,6 +22,8 @@ pos = 0;
 
 fullscreen = false;
 
+controlsMenu = 0;
+
 //Main Menu
 option[0,0] = "START GAME";
 option[0,1] = "SETTINGS";
