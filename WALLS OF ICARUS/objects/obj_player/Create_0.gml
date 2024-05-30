@@ -233,11 +233,6 @@ if(place_meeting(x, y + 2, collisionTiles))
 {
 	move_y = 0;
 	show_debug_message("Grounded");
-	
-	if(keyboard_check(vk_up) || keyboard_check(ord("W")))
-	{
-		state = jumpingState;
-	}
 }
 #endregion
 

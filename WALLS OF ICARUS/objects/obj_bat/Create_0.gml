@@ -1,6 +1,6 @@
 sprites = [spr_batFly, spr_batAttack, spr_batHit, spr_batDeath];
-HP = 3;
-MaxHP = 3;
+HP = 1;
+MaxHP = 1;
 moveSpeed = 4;
 canBeHurt = true;
 nextObject = 80;

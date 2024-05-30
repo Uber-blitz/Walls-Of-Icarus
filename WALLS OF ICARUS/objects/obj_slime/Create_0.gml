@@ -3,8 +3,8 @@
 
 //Variable Setup
 sprites = [spr_slimeIdle, spr_slimeHurt, spr_slimeDie];
-HP = 3;
-MaxHP = 3;
+HP = 1;
+MaxHP = 1;
 moveSpeed = 6;
 canBeHurt = true;
 jumpSpeed = 16;
