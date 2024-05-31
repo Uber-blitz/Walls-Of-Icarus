@@ -1,4 +1,7 @@
-if(state != deathState && HP > 0)
+if(!playerInvul)
 {
-	state = hurtState;
+	if(state != deathState && HP > 0)
+	{
+		state = hurtState;
+	}
 }

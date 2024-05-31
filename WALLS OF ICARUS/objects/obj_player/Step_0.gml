@@ -23,7 +23,7 @@ if (debug)
 	{
 		currPowerup = "fire";
 	}
-	if (keyboard_check_pressed(ord("I")))
+	if (!playerInvul && keyboard_check_pressed(ord("I")))
 	{
 		playerInvul = true;
 		image_blend = c_yellow;
